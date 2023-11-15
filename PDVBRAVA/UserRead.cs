@@ -20,6 +20,12 @@ namespace PDVBRAVA
 
         }
 
+        /// <summary>
+        /// SEARCH IN DATABASE, IF FIND DATA ill REUTURN IN FORM OF A LIST OF ALL
+        /// IF FILTER HAVE SOMETHING WILL RETURN A SEARCH USING LIKE
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>LIST OF USERS</returns>
         public List<User> getUsers(string filter = "") 
         {
             string query = "SELECT * FROM users";
@@ -29,11 +35,9 @@ namespace PDVBRAVA
             {
                 if (!string.IsNullOrEmpty(filter)) 
                 {
-                    query += "WHERE " +
-                                "name LIKE '%" + filter + "%' OR " +
-                                "userid LIKE '%" + filter + "%'";
+                    query += $" WHERE usersid LIKE '%{filter}%' OR USER LIKE '%{filter}%';";
                 }
-                MySqlCommand command = new MySqlCommand();
+                MySqlCommand command = new MySqlCommand(query);
                 command.Connection = connection.getConnection();
                 reader = command.ExecuteReader();
                 User user = null;
@@ -46,13 +50,38 @@ namespace PDVBRAVA
                     users.Add(user);    
 
                 }
+                reader.Close();
+                connection.getConnection().Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR EN USERS");
+                MessageBox.Show(ex.Message);
+            }
+            return users;
+        }
+        /// <summary>
+        /// INSERT A NEW USER
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>RETURN TRUE IF EXECUTE NON QUERY IS > 0 </returns>
+        public bool addUser(User user) 
+        {
+            bool result = false;
+            try
+            {
+                string query = "INSERT INTO users(user, password) VALUES("+$"'{user.Name}'," + $"'{user.Password}')";
+                MySqlCommand command = new MySqlCommand(query, connection.getConnection());
+                result = command.ExecuteNonQuery() > 0;
+                
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
-            return users;
+            return result;
+
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label2 = new Label();
+            txtSearchUser = new TextBox();
             userDGV = new DataGridView();
             userID = new DataGridViewTextBoxColumn();
             UserName = new DataGridViewTextBoxColumn();
@@ -36,8 +38,8 @@
             btnDeleteUser = new Button();
             btnEditUser = new Button();
             btnAddUser = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtPasswordUser = new TextBox();
+            txtUser = new TextBox();
             lbPassoword = new Label();
             lbUser = new Label();
             label1 = new Label();
@@ -48,6 +50,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(txtSearchUser);
             panel1.Controls.Add(userDGV);
             panel1.Controls.Add(LbTitleUsers);
             panel1.Dock = DockStyle.Left;
@@ -56,18 +60,36 @@
             panel1.Size = new Size(624, 601);
             panel1.TabIndex = 0;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(54, 175);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Search";
+            // 
+            // txtSearchUser
+            // 
+            txtSearchUser.Location = new Point(102, 172);
+            txtSearchUser.Name = "txtSearchUser";
+            txtSearchUser.Size = new Size(459, 23);
+            txtSearchUser.TabIndex = 2;
+            txtSearchUser.TextChanged += txtSearchUser_TextChanged;
+            // 
             // userDGV
             // 
             userDGV.AllowUserToAddRows = false;
             userDGV.AllowUserToDeleteRows = false;
             userDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userDGV.Columns.AddRange(new DataGridViewColumn[] { userID, UserName });
-            userDGV.Location = new Point(54, 149);
+            userDGV.Location = new Point(54, 214);
             userDGV.Name = "userDGV";
             userDGV.ReadOnly = true;
             userDGV.RowTemplate.Height = 25;
-            userDGV.Size = new Size(543, 414);
+            userDGV.Size = new Size(543, 349);
             userDGV.TabIndex = 1;
+            userDGV.CellClick += userDGV_CellClick;
             // 
             // userID
             // 
@@ -119,21 +141,22 @@
             btnAddUser.TabIndex = 1;
             btnAddUser.Text = "Add";
             btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
-            // textBox1
+            // txtPasswordUser
             // 
-            textBox1.Location = new Point(661, 290);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
-            textBox1.Size = new Size(273, 23);
-            textBox1.TabIndex = 4;
+            txtPasswordUser.Location = new Point(661, 290);
+            txtPasswordUser.Name = "txtPasswordUser";
+            txtPasswordUser.PasswordChar = '*';
+            txtPasswordUser.Size = new Size(273, 23);
+            txtPasswordUser.TabIndex = 4;
             // 
-            // textBox2
+            // txtUser
             // 
-            textBox2.Location = new Point(661, 214);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(273, 23);
-            textBox2.TabIndex = 5;
+            txtUser.Location = new Point(661, 214);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(273, 23);
+            txtUser.TabIndex = 5;
             // 
             // lbPassoword
             // 
@@ -182,8 +205,8 @@
             Controls.Add(label1);
             Controls.Add(lbUser);
             Controls.Add(lbPassoword);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtUser);
+            Controls.Add(txtPasswordUser);
             Controls.Add(btnDeleteUser);
             Controls.Add(btnEditUser);
             Controls.Add(btnAddUser);
@@ -206,13 +229,15 @@
         private Button btnDeleteUser;
         private DataGridView userDGV;
         private Button btnAddUser;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtPasswordUser;
+        private TextBox txtUser;
         private Label lbPassoword;
         private Label lbUser;
         private Label label1;
         private DataGridViewTextBoxColumn userID;
         private DataGridViewTextBoxColumn UserName;
         private Button btnExit;
+        private Label label2;
+        private TextBox txtSearchUser;
     }
 }
