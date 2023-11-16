@@ -24,15 +24,26 @@ namespace PDVBRAVA
         {
             string user = txtUser.Text.ToString();
             string pass = txtPassword.Text.ToString();
-            bool res = userLogin.login(user, pass);
-            if (res)
+            if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show("GOOD Credentials");
+                bool res = userLogin.login(user, pass);
+                if (res)
+                {
+                    DashBoard dashBoard = new DashBoard();
+                    dashBoard.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Bad credentials");
+                }
             }
-            else
-            {
-                MessageBox.Show("Bad credentials");
-            }
+
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

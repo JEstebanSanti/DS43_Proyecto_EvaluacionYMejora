@@ -13,5 +13,8 @@ namespace PDVBRAVA
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
         }
+        
+
+        
     }
 }

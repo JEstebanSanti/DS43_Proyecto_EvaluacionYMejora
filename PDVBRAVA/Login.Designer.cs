@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            buttonExit = new Button();
             btnLogin = new Button();
             txtPassword = new TextBox();
             txtUser = new TextBox();
@@ -40,21 +41,32 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(buttonExit);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(txtUser);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(lb_TitleLogib);
-            panel1.Location = new Point(143, 37);
+            panel1.Location = new Point(61, 33);
             panel1.Name = "panel1";
-            panel1.Size = new Size(970, 585);
+            panel1.Size = new Size(812, 497);
             panel1.TabIndex = 0;
+            // 
+            // buttonExit
+            // 
+            buttonExit.Location = new Point(734, 471);
+            buttonExit.Name = "buttonExit";
+            buttonExit.Size = new Size(75, 23);
+            buttonExit.TabIndex = 1;
+            buttonExit.Text = "Exit";
+            buttonExit.UseVisualStyleBackColor = true;
+            buttonExit.Click += buttonExit_Click;
             // 
             // btnLogin
             // 
             btnLogin.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLogin.Location = new Point(393, 393);
+            btnLogin.Location = new Point(315, 350);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(199, 41);
             btnLogin.TabIndex = 5;
@@ -65,7 +77,7 @@
             // txtPassword
             // 
             txtPassword.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassword.Location = new Point(372, 313);
+            txtPassword.Location = new Point(294, 270);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(239, 29);
@@ -74,7 +86,7 @@
             // txtUser
             // 
             txtUser.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtUser.Location = new Point(372, 209);
+            txtUser.Location = new Point(294, 166);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(239, 29);
             txtUser.TabIndex = 3;
@@ -83,7 +95,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(372, 277);
+            label2.Location = new Point(294, 234);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
             label2.Size = new Size(94, 22);
@@ -94,7 +106,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(372, 175);
+            label1.Location = new Point(294, 132);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
             label1.Size = new Size(50, 22);
@@ -117,9 +129,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(964, 601);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
             Text = "Login";
             panel1.ResumeLayout(false);
@@ -136,5 +148,7 @@
         private Label label2;
         private Label label1;
         private Label lb_TitleLogib;
+        private Button btnExit;
+        private Button buttonExit;
     }
 }
