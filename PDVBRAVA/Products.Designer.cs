@@ -42,11 +42,11 @@
             label1 = new Label();
             lbProduct = new Label();
             lbPassoword = new Label();
-            txtUser = new TextBox();
+            txtName = new TextBox();
             txtDescription = new TextBox();
-            btnDeleteUser = new Button();
-            btnEditUser = new Button();
-            btnAddUser = new Button();
+            btnDeleteProduct = new Button();
+            btnEditProduct = new Button();
+            btnAddProduct = new Button();
             label3 = new Label();
             txtPrice = new TextBox();
             lbStock = new Label();
@@ -82,6 +82,7 @@
             txtSearchProduct.Name = "txtSearchProduct";
             txtSearchProduct.Size = new Size(459, 23);
             txtSearchProduct.TabIndex = 2;
+            txtSearchProduct.TextChanged += txtSearchProduct_TextChanged;
             // 
             // productDGV
             // 
@@ -100,6 +101,7 @@
             productDGV.Size = new Size(631, 349);
             productDGV.StandardTab = true;
             productDGV.TabIndex = 1;
+            productDGV.CellClick += productDGV_CellClick;
             // 
             // ID
             // 
@@ -184,47 +186,49 @@
             lbPassoword.TabIndex = 15;
             lbPassoword.Text = "Description";
             // 
-            // txtUser
+            // txtName
             // 
-            txtUser.Location = new Point(657, 129);
-            txtUser.Name = "txtUser";
-            txtUser.Size = new Size(273, 23);
-            txtUser.TabIndex = 14;
+            txtName.Location = new Point(657, 129);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(273, 23);
+            txtName.TabIndex = 14;
             // 
             // txtDescription
             // 
             txtDescription.Location = new Point(657, 185);
             txtDescription.Name = "txtDescription";
-            txtDescription.PasswordChar = '*';
             txtDescription.Size = new Size(273, 23);
             txtDescription.TabIndex = 13;
             // 
-            // btnDeleteUser
+            // btnDeleteProduct
             // 
-            btnDeleteUser.Location = new Point(855, 376);
-            btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(75, 23);
-            btnDeleteUser.TabIndex = 11;
-            btnDeleteUser.Text = "Delete";
-            btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteProduct.Location = new Point(855, 376);
+            btnDeleteProduct.Name = "btnDeleteProduct";
+            btnDeleteProduct.Size = new Size(75, 23);
+            btnDeleteProduct.TabIndex = 11;
+            btnDeleteProduct.Text = "Delete";
+            btnDeleteProduct.UseVisualStyleBackColor = true;
+            btnDeleteProduct.Click += btnDeleteProduct_Click;
             // 
-            // btnEditUser
+            // btnEditProduct
             // 
-            btnEditUser.Location = new Point(753, 376);
-            btnEditUser.Name = "btnEditUser";
-            btnEditUser.Size = new Size(75, 23);
-            btnEditUser.TabIndex = 12;
-            btnEditUser.Text = "Edit";
-            btnEditUser.UseVisualStyleBackColor = true;
+            btnEditProduct.Location = new Point(753, 376);
+            btnEditProduct.Name = "btnEditProduct";
+            btnEditProduct.Size = new Size(75, 23);
+            btnEditProduct.TabIndex = 12;
+            btnEditProduct.Text = "Edit";
+            btnEditProduct.UseVisualStyleBackColor = true;
+            btnEditProduct.Click += btnEditProduct_Click;
             // 
-            // btnAddUser
+            // btnAddProduct
             // 
-            btnAddUser.Location = new Point(657, 376);
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(75, 23);
-            btnAddUser.TabIndex = 9;
-            btnAddUser.Text = "Add";
-            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddProduct.Location = new Point(657, 376);
+            btnAddProduct.Name = "btnAddProduct";
+            btnAddProduct.Size = new Size(75, 23);
+            btnAddProduct.TabIndex = 9;
+            btnAddProduct.Text = "Add";
+            btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // label3
             // 
@@ -239,7 +243,6 @@
             // 
             txtPrice.Location = new Point(657, 242);
             txtPrice.Name = "txtPrice";
-            txtPrice.PasswordChar = '*';
             txtPrice.Size = new Size(273, 23);
             txtPrice.TabIndex = 18;
             // 
@@ -256,7 +259,6 @@
             // 
             txtQuantityStock.Location = new Point(657, 309);
             txtQuantityStock.Name = "txtQuantityStock";
-            txtQuantityStock.PasswordChar = '*';
             txtQuantityStock.Size = new Size(273, 23);
             txtQuantityStock.TabIndex = 20;
             // 
@@ -273,11 +275,11 @@
             Controls.Add(label1);
             Controls.Add(lbProduct);
             Controls.Add(lbPassoword);
-            Controls.Add(txtUser);
+            Controls.Add(txtName);
             Controls.Add(txtDescription);
-            Controls.Add(btnDeleteUser);
-            Controls.Add(btnEditUser);
-            Controls.Add(btnAddUser);
+            Controls.Add(btnDeleteProduct);
+            Controls.Add(btnEditProduct);
+            Controls.Add(btnAddProduct);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Products";
@@ -300,11 +302,11 @@
         private Label label1;
         private Label lbProduct;
         private Label lbPassoword;
-        private TextBox txtUser;
+        private TextBox txtName;
         private TextBox txtDescription;
-        private Button btnDeleteUser;
-        private Button btnEditUser;
-        private Button btnAddUser;
+        private Button btnDeleteProduct;
+        private Button btnEditProduct;
+        private Button btnAddProduct;
         private Label label3;
         private TextBox txtPrice;
         private Label lbStock;
