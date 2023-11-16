@@ -215,6 +215,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Users";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Users";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
