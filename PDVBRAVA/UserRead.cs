@@ -13,10 +13,12 @@ namespace PDVBRAVA
 
         private DataConnection connection;
         private List<User> users;
+        private User nwUser;
         public UserRead() 
         {
             connection = new DataConnection();
             users = new List<User>();  
+            nwUser = new User();
 
         }
 
@@ -82,6 +84,69 @@ namespace PDVBRAVA
             }
             return result;
 
+        }
+
+        public User getUserByID(string id = "") 
+        {
+            string query = $"SELECT * FROM users WHERE usersid='{id}'";
+            try
+            {
+                MySqlCommand command = new MySqlCommand(query, connection.getConnection());
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    nwUser.id = reader.GetInt32(0);
+                    nwUser.Name = reader.GetString(1);
+                    nwUser.Password = reader.GetString(2);
+                   
+                }
+                reader.Close ();
+                connection.getConnection ().Close();   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show (ex.Message);
+                
+            }
+            return nwUser;
+        }
+
+        public bool updateUser(User user) 
+        {
+            bool result = false;
+            try
+            {
+                string query = $"UPDATE users SET user='{user.Name}', password='{user.Password}' WHERE usersID='{user.id}'"; 
+                MySqlCommand command = new MySqlCommand(query, connection.getConnection());
+                result = command.ExecuteNonQuery() > 0;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return result;
+
+        }
+
+        internal bool deleteUser(User nUser)
+        {
+            bool result = false;
+            try
+            {
+                string query = $"DELETE FROM users WHERE usersID='{nUser.id}'";
+                MySqlCommand command = new MySqlCommand(query, connection.getConnection());
+                result = command.ExecuteNonQuery() > 0;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            return result;
         }
     }
 }

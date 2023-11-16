@@ -123,6 +123,7 @@
             btnDeleteUser.TabIndex = 2;
             btnDeleteUser.Text = "Delete";
             btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteUser.Click += btnDeleteUser_Click;
             // 
             // btnEditUser
             // 
@@ -132,6 +133,7 @@
             btnEditUser.TabIndex = 3;
             btnEditUser.Text = "Edit";
             btnEditUser.UseVisualStyleBackColor = true;
+            btnEditUser.Click += btnEditUser_Click;
             // 
             // btnAddUser
             // 

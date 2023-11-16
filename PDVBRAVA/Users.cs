@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -98,13 +99,50 @@ namespace PDVBRAVA
             nUser.Password = txtPasswordUser.Text.Trim();
         }
 
+
+
         private void userDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = userDGV.Rows[e.RowIndex]; 
-            if (row != null) 
+            DataGridViewRow row = userDGV.Rows[e.RowIndex];
+            if (row != null)
             {
-                txtUser.Text = Convert.ToString(row.Cells["Name"].Value);
-                txtPasswordUser.Text = Convert.ToString(row.Cells[1].Value);
+                string idUser = Convert.ToString(row.Cells["userID"].Value);
+                nUser = userRead.getUserByID(idUser);
+                if (nUser != null)
+                {
+                    txtUser.Text = nUser.Name;
+                    txtPasswordUser.Text = nUser.Password;
+                }
+
+            }
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            if (!validationUser()) { return; }
+
+            loadUserData();
+
+            if (userRead.updateUser(nUser))
+            {
+                MessageBox.Show("User UPDATED Successfully");
+                loadUsers();
+                cleanFieldData();
+            }
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (!validationUser()) { return; }
+
+            loadUserData();
+
+
+            if (userRead.deleteUser(nUser))
+            {
+                MessageBox.Show("User DELETED Successfully");
+                loadUsers();
+                cleanFieldData();
             }
         }
     }
