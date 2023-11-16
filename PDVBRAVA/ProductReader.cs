@@ -63,9 +63,9 @@ namespace PDVBRAVA
             {
                 string query = "INSERT INTO products(name, description, price, quantityinstock) VALUES("
                     + $"'{product.Name}'," + 
-                    $"'{product.Description}'"+
-                    $"'{product.Price}'"+
-                    $"'{product.Stock}'";
+                    $"'{product.Description}',"+
+                    $"'{product.Price}',"+
+                    $"'{product.Stock}');";
                 MessageBox.Show(query);
 
                 MySqlCommand command = new MySqlCommand(query, connection.getConnection());

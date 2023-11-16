@@ -35,9 +35,17 @@
             btnUsers = new Button();
             button2 = new Button();
             button5 = new Button();
-            dataGridView1 = new DataGridView();
+            DVGProducts = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            NAME = new DataGridViewTextBoxColumn();
+            PRICE = new DataGridViewTextBoxColumn();
+            QUANTITY = new DataGridViewTextBoxColumn();
+            txtSearchProduct = new TextBox();
+            btnConfirm = new Button();
+            lbTotal = new Label();
+            label1 = new Label();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DVGProducts).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -120,14 +128,80 @@
             button5.Text = "Customers";
             button5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // DVGProducts
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(89, 178);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(777, 331);
-            dataGridView1.TabIndex = 1;
+            DVGProducts.AllowUserToDeleteRows = false;
+            DVGProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DVGProducts.Columns.AddRange(new DataGridViewColumn[] { ID, NAME, PRICE, QUANTITY });
+            DVGProducts.Location = new Point(33, 178);
+            DVGProducts.Name = "DVGProducts";
+            DVGProducts.ReadOnly = true;
+            DVGProducts.RowTemplate.Height = 25;
+            DVGProducts.Size = new Size(592, 331);
+            DVGProducts.TabIndex = 1;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // NAME
+            // 
+            NAME.HeaderText = "NAME";
+            NAME.Name = "NAME";
+            NAME.ReadOnly = true;
+            NAME.Width = 200;
+            // 
+            // PRICE
+            // 
+            PRICE.HeaderText = "PRICE";
+            PRICE.Name = "PRICE";
+            PRICE.ReadOnly = true;
+            PRICE.Width = 150;
+            // 
+            // QUANTITY
+            // 
+            QUANTITY.HeaderText = "QUANTITY";
+            QUANTITY.Name = "QUANTITY";
+            QUANTITY.ReadOnly = true;
+            // 
+            // txtSearchProduct
+            // 
+            txtSearchProduct.Location = new Point(33, 129);
+            txtSearchProduct.Name = "txtSearchProduct";
+            txtSearchProduct.Size = new Size(550, 23);
+            txtSearchProduct.TabIndex = 2;
+            txtSearchProduct.PreviewKeyDown += textBox1_PreviewKeyDown;
+            // 
+            // btnConfirm
+            // 
+            btnConfirm.Location = new Point(692, 455);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(116, 54);
+            btnConfirm.TabIndex = 3;
+            btnConfirm.Text = "Confirm";
+            btnConfirm.UseVisualStyleBackColor = true;
+            // 
+            // lbTotal
+            // 
+            lbTotal.AutoSize = true;
+            lbTotal.Font = new Font("Arial", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbTotal.Location = new Point(651, 197);
+            lbTotal.Name = "lbTotal";
+            lbTotal.Size = new Size(167, 34);
+            lbTotal.TabIndex = 4;
+            lbTotal.Text = "SUBTOTAL";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(651, 255);
+            label1.Name = "label1";
+            label1.Size = new Size(107, 34);
+            label1.TabIndex = 5;
+            label1.Text = "TOTAL";
             // 
             // DashBoard
             // 
@@ -135,7 +209,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(964, 601);
-            Controls.Add(dataGridView1);
+            Controls.Add(label1);
+            Controls.Add(lbTotal);
+            Controls.Add(btnConfirm);
+            Controls.Add(txtSearchProduct);
+            Controls.Add(DVGProducts);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashBoard";
@@ -143,8 +221,9 @@
             Text = "DashBoard";
             Load += DashBoard_Load;
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DVGProducts).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -155,6 +234,14 @@
         private Button btnUsers;
         private Button button5;
         private Button btnExit;
-        private DataGridView dataGridView1;
+        private DataGridView DVGProducts;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn NAME;
+        private DataGridViewTextBoxColumn PRICE;
+        private DataGridViewTextBoxColumn QUANTITY;
+        private TextBox txtSearchProduct;
+        private Button btnConfirm;
+        private Label lbTotal;
+        private Label label1;
     }
 }

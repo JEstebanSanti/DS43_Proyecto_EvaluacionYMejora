@@ -32,11 +32,6 @@
             label2 = new Label();
             txtSearchProduct = new TextBox();
             productDGV = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            NAME = new DataGridViewTextBoxColumn();
-            DESCRIPTION = new DataGridViewTextBoxColumn();
-            PRICE = new DataGridViewTextBoxColumn();
-            STOCK = new DataGridViewTextBoxColumn();
             LbTitleProducts = new Label();
             btnExit = new Button();
             label1 = new Label();
@@ -51,6 +46,11 @@
             txtPrice = new TextBox();
             lbStock = new Label();
             txtQuantityStock = new TextBox();
+            STOCK = new DataGridViewTextBoxColumn();
+            PRICE = new DataGridViewTextBoxColumn();
+            DESCRIPTION = new DataGridViewTextBoxColumn();
+            NAME = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productDGV).BeginInit();
             SuspendLayout();
@@ -102,41 +102,6 @@
             productDGV.StandardTab = true;
             productDGV.TabIndex = 1;
             productDGV.CellClick += productDGV_CellClick;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Width = 30;
-            // 
-            // NAME
-            // 
-            NAME.HeaderText = "Name";
-            NAME.Name = "NAME";
-            NAME.ReadOnly = true;
-            NAME.Width = 130;
-            // 
-            // DESCRIPTION
-            // 
-            DESCRIPTION.HeaderText = "DESCRIPTION";
-            DESCRIPTION.Name = "DESCRIPTION";
-            DESCRIPTION.ReadOnly = true;
-            DESCRIPTION.Width = 250;
-            // 
-            // PRICE
-            // 
-            PRICE.HeaderText = "PRICE";
-            PRICE.Name = "PRICE";
-            PRICE.ReadOnly = true;
-            PRICE.Width = 90;
-            // 
-            // STOCK
-            // 
-            STOCK.HeaderText = "STOCK";
-            STOCK.Name = "STOCK";
-            STOCK.ReadOnly = true;
-            STOCK.Width = 90;
             // 
             // LbTitleProducts
             // 
@@ -261,6 +226,41 @@
             txtQuantityStock.Name = "txtQuantityStock";
             txtQuantityStock.Size = new Size(273, 23);
             txtQuantityStock.TabIndex = 20;
+            // 
+            // STOCK
+            // 
+            STOCK.HeaderText = "STOCK";
+            STOCK.Name = "STOCK";
+            STOCK.ReadOnly = true;
+            STOCK.Width = 90;
+            // 
+            // PRICE
+            // 
+            PRICE.HeaderText = "PRICE";
+            PRICE.Name = "PRICE";
+            PRICE.ReadOnly = true;
+            PRICE.Width = 90;
+            // 
+            // DESCRIPTION
+            // 
+            DESCRIPTION.HeaderText = "DESCRIPTION";
+            DESCRIPTION.Name = "DESCRIPTION";
+            DESCRIPTION.ReadOnly = true;
+            DESCRIPTION.Width = 250;
+            // 
+            // NAME
+            // 
+            NAME.HeaderText = "Name";
+            NAME.Name = "NAME";
+            NAME.ReadOnly = true;
+            NAME.Width = 130;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Width = 30;
             // 
             // Products
             // 
